@@ -16,6 +16,7 @@ In this exercise we're being asked to demonstrate the Datadog monitoring suite. 
   - [Install MySQL](#install-mysql)
     - [Ansible Install of MySQL](#ansible-install-of-mysql)
   - [Create a Custom Check](#create-a-custom-check)
+    - [Ansible Install of Random Check](#ansible-install-of-random-check)
 - [Data Visualization](#data-visualization)
   - [Create a Dashboard](#create-a-dashboard)
   - [Bonus Question: Timeboard vs Screenboard?](#bonus-question-timeboard-vs-screenboard)

@@ -31,7 +31,7 @@ In this exercise we're being asked to demonstrate the Datadog monitoring suite. 
 
 ### VM Creation
 
-We will use the Amazon AWS free tier to create three t2.micro VMs: an RHEL 7.4 Ansible server, an Ubuntu 14.04 host called randomserver01, and a RHEL 7.4 host called randomserver02.  This way we can demonstrate that this automation setup is agnostic with regards to the operating system.  We will use the Ansible server to install the Datadog agent on all three VMs, including itself.  We will also use it to deploy MySQL and the MySQL integration, as well as the custom random check script and integration, to the two randomserver hosts.
+We will use the Amazon AWS free tier to create three t2.micro VMs: a RHEL 7.4 Ansible server, an Ubuntu 14.04 host called randomserver01, and a RHEL 7.4 host called randomserver02.  This way we can demonstrate that this automation setup is agnostic with regards to the operating system.  We will use the Ansible server to install the Datadog agent on all three VMs, including itself.  We will also use it to deploy MySQL and the MySQL integration, as well as the custom random check script and integration, to the two randomserver hosts.
 
 ![AWS Host List](https://user-images.githubusercontent.com/31740703/30281770-4b57f632-96e1-11e7-830e-00ea9d082009.png)
 
@@ -165,7 +165,7 @@ In order to install the agent we need two things: the Datadog.datadog role, whic
     - { role: Datadog.datadog, become: yes }
 ```
 
-Then we call it from the command line using the ansible-playbook command.  The output from Ansible runs can be very long and verbose and typically doesn't contain anything necessary to see unless there is an error.  For this demonstration we will truncate the output.
+Then we call it from the command line using the ansible-playbook command.  The outputs from Ansible runs can be very long and verbose and typically don't contain anything necessary to see unless there is an error.  For this demonstration we will truncate the output.
 
 ```
 # ansible-playbook plays/datadog.yml -i hosts
@@ -471,7 +471,7 @@ randomserver02             : ok=4    changed=3    unreachable=0    failed=0
 
 ### Create a Dashboard
 
-We can clone the database integration dashboard via the Datadog UI so we can additional database metrics and the random check metrics.
+We can clone the database integration dashboard via the Datadog UI so we can customize it and add additional database metrics and the random check metrics to suit our needs.
 
 ![Custom Dashboard](https://user-images.githubusercontent.com/31740703/30281798-60b3592c-96e1-11e7-8e2c-bcccafa0492d.png)
 
@@ -479,7 +479,7 @@ We can clone the database integration dashboard via the Datadog UI so we can add
 
 The Timeboard displays metrics and graphs in an automated grid layout, all of which are automatically synced to the same time.  This gives us the ability to troubleshoot by seeing the correlation of concurrent events.  The Timeboard is more limited than the Screenboard in terms of what it can show and the graphs can only be shared individually.
 
-The Screenboard brings together a larger set of graphs and drag-and-drop widgets that are not necessarily time-synced.  The layout is flexible and the entire Screenboard can be shared out.  This helps provide a more comprehensive view of the system.
+The Screenboard brings together a larger set of options for graphs and drag-and-drop widgets that are not necessarily time-synced.  The layout is flexible and the entire Screenboard can be shared out, even read-only.  This helps provide a more comprehensive view of the system.
 
 ### Custom Check Snapshot
 
